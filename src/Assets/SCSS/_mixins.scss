@@ -1,0 +1,51 @@
+@import './variables';
+@mixin transform($transforms) {
+  -webkit-transform: $transforms;
+  -moz-transform: $transforms;
+  -ms-transform: $transforms;
+  transform: $transforms;
+}
+
+@mixin transition($transition) {
+  -webkit-transition: $transition;
+  -moz-transition: $transition;
+  -ms-transition: $transition;
+  -o-transition: $transition;
+  transition: $transition;
+}
+
+@mixin display($display, $justify, $align) {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: $display;
+  justify-content: $justify;
+  align-items: $align;
+}
+
+@mixin media($mediaName, $type) {
+  @if $mediaName==mobile {
+    @media screen and ($type: $mobile) {
+      @content;
+    }
+  } @else if $mediaName==tablet {
+    @media screen and ($type: $tablet) {
+      @content;
+    }
+  } @else if $mediaName==tabletPro {
+    @media screen and ($type: $tabletPro) {
+      @content;
+    }
+  } @else if $mediaName==desktop {
+    @media screen and ($type: $desktop) {
+      @content;
+    }
+  } @else if $mediaName==desktopPro {
+    @media screen and ($type: $desktopPro) {
+      @content;
+    }
+  } @else if $mediaName==wide {
+    @media screen and ($type: $wide) {
+      @content;
+    }
+  }
+}

@@ -1,0 +1,24 @@
+@import '../../Assets/SCSS/variables';
+@import '../../Assets/SCSS/mixins';
+.mainPage {
+  max-width: 1024px;
+  width: 100%;
+  height: auto;
+  margin: 0 auto;
+  @include display(flex, flex-start, center);
+  flex-direction: column;
+  position: relative;
+  .searchBox {
+    width: 100%;
+    min-height: 85px;
+    height: auto;
+    background-color: $base;
+    margin: 69px 0 119px;
+  }
+  .movieCards {
+    width: calc(100% + 35px);
+    height: auto;
+    @include display(flex, flex-start, flex-start);
+    flex-wrap: wrap;
+  }
+}
