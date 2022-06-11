@@ -1,86 +1,94 @@
 @import '../../Assets/SCSS/variables';
 @import '../../Assets/SCSS/mixins';
-.movieCardItem {
-  width: calc(33.33% - 35px);
-  min-height: 195px;
+.movieCards {
+  width: calc(100% + 35px);
   height: auto;
-  margin: 0 17.5px 35px;
-  border: 1px solid $border;
-  border-radius: 6px;
-  padding: 1px;
-  @include display(flex, space-between, flex-start);
+  @include display(flex, flex-start, flex-start);
   flex-wrap: wrap;
-  background-color: $card;
-  .movieCardImageFigure {
-    width: 128px;
-    height: 190px;
-    border-radius: 6px 0 0 6px;
-    overflow: hidden;
-    .movieCardImage {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-  }
-  .movieCardContent {
-    width: calc(100% - 140px);
-    min-height: 190px;
-    height: 100%;
-    padding: 16px 0;
+  .movieCardItem {
+    width: calc(33.33% - 35px);
+    min-height: 195px;
+    height: auto;
+    margin: 0 17.5px 35px;
+    border: 1px solid $border;
+    border-radius: 6px;
+    padding: 1px;
     @include display(flex, space-between, flex-start);
-    flex-direction: column;
-    .movieCardTitle {
-      width: 100%;
-      min-height: 90px;
-      height: auto;
-      font-size: 16px;
-      font-weight: 700;
-      line-height: 19px;
-      color: #000;
-    }
-    .movieCardDate {
-      width: 100%;
-      min-height: 30px;
-      height: auto;
-      @include display(flex, flex-start, center);
-      flex-wrap: wrap;
-      .dateIcon {
-        width: 16px;
-        height: 16px;
+    flex-wrap: wrap;
+    background-color: $card;
+    .movieCardImageFigure {
+      width: 128px;
+      height: 190px;
+      border-radius: 6px 0 0 6px;
+      overflow: hidden;
+      cursor: pointer;
+      .movieCardImage {
+        width: 100%;
+        height: 100%;
         object-fit: cover;
-        margin-right: 7px;
-      }
-      .createdDate {
-        font-size: 12px;
-        font-weight: 400;
-        line-height: 14px;
-        color: #4e4e4e;
       }
     }
-    .movieCardGenre {
-      width: 100%;
-      height: auto;
-      @include display(flex, flex-start, center);
-      flex-wrap: wrap;
-      .genreItem {
-        width: max-content;
-        font-size: 12px;
-        font-weight: 400;
-        line-height: 14px;
-        color: #505050;
-        margin-right: 16px;
-        position: relative;
-        &:not(:last-child) {
-          &::after {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: calc(100% + 7px);
-            transform: translateY(-50%);
-            width: 4px;
-            height: 4px;
-            border-radius: 50%;
-            background-color: #505050;
+    .movieCardContent {
+      width: calc(100% - 140px);
+      min-height: 190px;
+      height: 100%;
+      padding: 16px 0;
+      @include display(flex, space-between, flex-start);
+      flex-direction: column;
+      .movieCardTitle {
+        width: 100%;
+        min-height: 90px;
+        height: auto;
+        font-size: 16px;
+        font-weight: 700;
+        line-height: 19px;
+        color: #000;
+        cursor: pointer;
+      }
+      .movieCardDate {
+        width: 100%;
+        min-height: 30px;
+        height: auto;
+        @include display(flex, flex-start, center);
+        flex-wrap: wrap;
+        .dateIcon {
+          width: 16px;
+          height: 16px;
+          object-fit: cover;
+          margin-right: 7px;
+        }
+        .createdDate {
+          font-size: 12px;
+          font-weight: 400;
+          line-height: 14px;
+          color: #4e4e4e;
+        }
+      }
+      .movieCardGenre {
+        width: 100%;
+        height: auto;
+        @include display(flex, flex-start, center);
+        flex-wrap: wrap;
+        .genreItem {
+          width: max-content;
+          font-size: 12px;
+          font-weight: 400;
+          line-height: 14px;
+          color: #505050;
+          margin-right: 16px;
+          position: relative;
+          &:not(:last-child) {
+            &::after {
+              content: '';
+              position: absolute;
+              top: 50%;
+              left: calc(100% + 7px);
+              transform: translateY(-50%);
+              width: 4px;
+              height: 4px;
+              border-radius: 50%;
+              background-color: #505050;
+            }
           }
         }
       }

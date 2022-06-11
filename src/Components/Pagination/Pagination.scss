@@ -1,0 +1,44 @@
+@import '../../Assets/SCSS/variables';
+@import '../../Assets/SCSS/mixins';
+.pagination {
+  width: 100%;
+  min-height: 80px;
+  height: auto;
+  @include display(flex, center, center);
+  flex-wrap: wrap;
+  margin: 84px 0 35px;
+  .paginate {
+    width: 100%;
+    height: auto;
+    @include display(flex, center, center);
+    flex-wrap: wrap;
+    .prev,
+    .next {
+      font-size: 16px;
+      line-height: 19px;
+      font-weight: 700;
+      color: rgba(0, 0, 0, 0.48);
+      -moz-transition: color 0.3s ease-in;
+      -o-transition: color 0.3s ease-in;
+      -webkit-transition: color 0.3s ease-in;
+      transition: color 0.3s ease-in;
+      cursor: pointer;
+      &:hover,
+      &.active {
+        color: #318fe7;
+      }
+    }
+    .seprator {
+      width: 1px;
+      height: 30px;
+      background-color: #6a6a6a;
+      margin: 0 15px;
+    }
+  }
+  .paginationStatus {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 19px;
+    color: #989898;
+  }
+}

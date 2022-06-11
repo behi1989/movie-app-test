@@ -1,14 +1,14 @@
 import React from 'react';
 import MovieCardItem from '../../Components/MovieCardItem/MovieCardItem';
-import './Main.scss';
+import Pagination from '../../Components/Pagination/Pagination';
+import SearchBox from '../../Components/SearchBox/SearchBox';
 
 const Main = (props) => {
   return (
-    <div className="mainPage">
-      <div className="searchBox"></div>
-      <div className="movieCards">
-        <MovieCardItem />
-      </div>
+    <div className="container">
+      <SearchBox />
+      <MovieCardItem />
+      <Pagination />
     </div>
   );
 };

@@ -13,3 +13,15 @@ body {
   -moz-box-sizing: border-box;
   box-sizing: border-box;
 }
+
+.container {
+  max-width: 1024px;
+  width: 100%;
+  height: auto;
+  margin: 0 auto;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
+  position: relative;
+}
