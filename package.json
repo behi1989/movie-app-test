@@ -34,5 +34,9 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  }
+  },
+  "description": "Frontend Technical Test Document",
+  "main": "index.js",
+  "author": "Behnam Gholipoor <behnam.gholipoor@gmail.com>",
+  "license": "MIT"
 }
