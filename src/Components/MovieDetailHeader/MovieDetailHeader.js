@@ -3,15 +3,17 @@ import BackIcon from '../../Assets/Images/back_icon.svg';
 import './MovieDetailHeader.scss';
 
 const MovieDetailHeader = (props) => {
-  const [dateValues, setDateValues] = useState([]);
+  // Define props
+  const { title, tagLine, goBack } = props;
+
   return (
     <div className="movieDetailHeader">
-      <button className="btnBackToMain">
+      <button className="btnBackToMain" onClick={goBack}>
         <img src={BackIcon} alt="backIcon" className="backIcon" /> Back
       </button>
       <div className="movieDetailTitles">
-        <p className="movieTitle">Guardians of the Galaxy</p>
-        <p className="movieShortDescription">All heroes start somewhere.</p>
+        <p className="movieTitle">{title}</p>
+        <p className="movieShortDescription">{tagLine}</p>
       </div>
     </div>
   );

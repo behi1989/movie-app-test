@@ -5,6 +5,7 @@
   height: auto;
   @include display(flex, flex-start, flex-start);
   flex-direction: column;
+  margin-bottom: 69px;
   .contents {
     width: 100%;
     height: auto;
@@ -40,6 +41,10 @@
         }
         .value {
           font-weight: 400;
+          &.link {
+            color: #318fe7;
+            cursor: pointer;
+          }
         }
         &:not(:last-child) {
           margin-bottom: 18px;

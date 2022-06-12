@@ -15,9 +15,10 @@ const App = () => {
       <Header />
       <Router>
         <Routes>
-          <Route path="/" element={<Main />} />
+          <Route path="/movies" element={<Main />} />
+          <Route path="/movies/:page" element={<Main />} />
           <Route path="/movie/:movie" element={<MovieDetail />} />
-          <Route path="*" element={<Navigate to="/" replace />} />
+          <Route path="*" element={<Navigate to="/movies" replace />} />
         </Routes>
       </Router>
     </React.Fragment>

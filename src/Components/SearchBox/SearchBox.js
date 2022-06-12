@@ -1,17 +1,36 @@
 import React, { useState } from 'react';
-import DatePicker from 'react-multi-date-picker';
+import DatePicker, { DateObject, getAllDatesInRange } from 'react-multi-date-picker';
 import DatePanel from 'react-multi-date-picker/plugins/date_panel';
 import './SearchBox.scss';
 
 const SearchBox = (props) => {
-  const [dateValues, setDateValues] = useState([]);
+  // Define props
+  const { submit } = props;
+
+  // Define states
+  const [dates, setDates] = useState([]);
+  const [allDates, setAllDates] = useState([]);
+
   return (
     <div className="searchBox">
       <label className="searchBoxInput">
         Search by release date:
-        <DatePicker range value={dateValues} onChange={setDateValues} plugins={[<DatePanel />]} />
+        <DatePicker
+          range
+          placeholder="Pick a date or date range"
+          minDate={new DateObject().toFirstOfMonth()}
+          maxDate={new DateObject().toLastOfMonth()}
+          value={dates}
+          onChange={(date) => {
+            setDates(date);
+            setAllDates(getAllDatesInRange(date));
+          }}
+          plugins={[<DatePanel eachDaysInRange />]}
+        />
       </label>
-      <button className="btnApplyDateSearch">Search</button>
+      <button className="btnApplyDateSearch" onClick={() => submit(allDates)}>
+        Search
+      </button>
     </div>
   );
 };
