@@ -1,19 +1,33 @@
 import React from 'react';
+import Rate from 'rc-rate';
+import styled from 'styled-components';
 import { Config } from '../../Config';
 import CommingSoon from '../../Assets/Images/coming-soon-1.jpg';
 import './MovieDetailContent.scss';
 
+const StyledRate = styled(Rate)`
+  &.rc-rate {
+    font-size: ${({ size }) => size}px;
+  }
+`;
+
 // Define DetaiItem Component with keys, values and link props
-const DetailItem = ({ keys, values, link }) => {
+const DetailItem = ({ keys, values, option }) => {
   return (
     <div className="detailItem">
       <span className="key">{keys}</span>
-      {link ? (
+      {option === 'link' ? (
         <span className="value link" onClick={() => window.open(values.includes('https') ? values : `https://www.imdb.com/title/${values}`, '_blank')}>
           link
         </span>
       ) : (
-        <span className="value">{values}</span>
+        option !== 'star' && <span className="value">{values}</span>
+      )}
+      {option === 'star' && (
+        <span className="value star">
+          <Rate count={10} allowHalf={true} value={parseFloat(values.split('(')[0])} disabled={true} style={{ display: 'flex', fontSize: '24px' }} />
+          {values}
+        </span>
       )}
     </div>
   );
@@ -38,10 +52,10 @@ const MovieDetailContent = (props) => {
           <DetailItem keys="Revenue" values={`$${Config.separate(data?.revenue)}`} />
           <DetailItem keys="Release Date" values={data?.release_date} />
           <DetailItem keys="Runtime" values={data?.runtime} />
-          <DetailItem keys="Score" values={`${data?.vote_average} (${data?.vote_count} votes)`} />
+          <DetailItem keys="Score" values={`${data?.vote_average} (${data?.vote_count} votes)`} option="star" />
           <DetailItem keys="Genres" values={data?.genres?.map((genre, i, { length }) => genre.name + (length > i + 1 ? ', ' : ''))} />
-          <DetailItem keys="IMDB Link" values={data?.imdb_id} link />
-          <DetailItem keys="Homepage Link" values={data?.homepage} link />
+          <DetailItem keys="IMDB Link" values={data?.imdb_id} option="link" />
+          <DetailItem keys="Homepage Link" values={data?.homepage} option="link" />
         </div>
       </div>
       <p className="description">{data?.overview}</p>

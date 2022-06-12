@@ -30,7 +30,7 @@
       .detailItem {
         width: 100%;
         height: auto;
-        @include display(flex, space-between, flex-start);
+        @include display(flex, space-between, center);
         flex-wrap: wrap;
         .key,
         .value {
@@ -44,6 +44,18 @@
           &.link {
             color: #318fe7;
             cursor: pointer;
+          }
+          &.star {
+            @include display(flex, flex-start, center);
+            flex-wrap: wrap;
+            .rc-rate {
+              margin-right: 15px;
+              .rc-rate-star {
+                &:last-child {
+                  margin-right: 0 !important;
+                }
+              }
+            }
           }
         }
         &:not(:last-child) {
